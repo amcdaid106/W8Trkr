@@ -21,7 +21,7 @@
 
 /* Navbar logo */
 .navbar-w8trkr-brand img {
-  width: 150px;
+  width: 100px;
 }
 
 /* Navbar right section (with form, links, button) */
@@ -36,6 +36,9 @@
   flex: 0 1 auto;
   cursor: pointer;
   padding: 0 20px;
+  .dropdown > img {
+    width: 50px;
+  }
 }
 
 /* Navbar standard link */
