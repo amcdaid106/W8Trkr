@@ -1,6 +1,6 @@
 class EntriesController < ApplicationController
   def index
-    @entries = Entry.all
+    @entries = Entry.where(user: current_user)
     @entry = Entry.new
   end
 
@@ -9,7 +9,7 @@ class EntriesController < ApplicationController
   end
 
   def create
-    @entry = Entry.new(date: DateTime.now, weight: entry_params[:weight])
+    @entry = Entry.new(date: DateTime.now, weight: entry_params[:weight], user: current_user)
     @entry.save
 
     redirect_to entries_path

@@ -1,4 +1,3 @@
 class Entry < ApplicationRecord
-  validates :date, presence: true
-  validates :weight, presence: true
+  belongs_to :user
 end

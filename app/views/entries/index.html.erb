@@ -16,7 +16,7 @@
                 <td>Delete</td>
               </tr>
             </thead>
-            <% Entry.all.each do |entry| %>
+            <% @entries.each do |entry| %>
             <tbody>
               <tr>
                 <td><%= entry.date %></td>
