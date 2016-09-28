@@ -9,8 +9,11 @@ class EntriesController < ApplicationController
   end
 
   def create
-    @entry = Entry.new(date: DateTime.now, weight: entry_params[:weight], user: current_user)
-    @entry.save
+    @weight = entry_params[:weight].to_f.round(1)
+    @entry = Entry.new(date: DateTime.now, weight: @weight, user: current_user)
+    unless @entry.save
+      @entry.errors[:weight]
+    end
 
     redirect_to entries_path
   end
