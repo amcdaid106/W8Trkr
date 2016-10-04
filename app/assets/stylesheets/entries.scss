@@ -2,9 +2,21 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.entries-wrapper {
+  background-color: #92949B;
+  height: 100vh;
+  padding: 30px;
+}
+
 .small-container {
   padding: 20px;
-  margin: 20px;
+  margin: 30px;
   border-radius: 4px;
-  background-color: #76C2AF;
+  background-color: #414953;
+  color: white;
+  border: solid 3px #575B78;
+  font-weight: lighter;
+}
+.weight-history > h3 {
+  font-weight: lighter;
 }
