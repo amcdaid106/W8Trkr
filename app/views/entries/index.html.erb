@@ -22,10 +22,9 @@
                 <td><%= entry.created_at.strftime("%b %e, %l:%M %p") %></td>
                 <td><%= entry.weight %></td>
                 <td class="text-center">
-                <%= link_to entry_path(entry[:id]), method: :delete do %>
-                <i class="fa fa-trash" aria-hidden="true"></i>
-                <% end %>
-
+                  <%= link_to entry_path(entry[:id]), method: :delete do %>
+                  <i class="fa fa-trash" aria-hidden="true"></i>
+                  <% end %>
                 </td>
               </tr>
             </tbody>
@@ -35,6 +34,5 @@
       </div>
     </div>
   </div>
-
 </div>
 

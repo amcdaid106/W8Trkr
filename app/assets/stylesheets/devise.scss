@@ -6,15 +6,27 @@
 // }
 
 
-.wrapper {
-  height: 100%;
-  width: 100%;
-}
+// .wrapper {
+//   height: 100%;
+//   width: 100%;
+// }
 .banner {
-  // color: #F7F3F3;
-  // text-align: center;
-  // display: flex;
+  padding-top: 50px;
+  font-weight: lighter;
+  height: 100vh;
   background-size: cover;
+  // display: flex;
+  color: white;
   align-items: center;
   justify-content: center;
+}
+
+form {
+  label {
+    font-weight: lighter;
+  }
+  .help-block {
+    color: white;
+    font-size: 12px;
+  }
 }
