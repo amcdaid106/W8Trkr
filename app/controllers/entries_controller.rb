@@ -1,6 +1,13 @@
 class EntriesController < ApplicationController
   def index
     @entries = Entry.where(user: current_user)
+
+    @graph_data = @entries.map do |entry|
+      {
+        date: entry.created_at,
+        weight: entry.weight
+      }
+    end
     @entry = Entry.new
   end
 

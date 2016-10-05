@@ -4,7 +4,7 @@
 
 .entries-wrapper {
   background-color: #92949B;
-  height: 100vh;
+  height: 100%;
   padding: 30px;
 }
 
@@ -17,6 +17,13 @@
   border: solid 3px #575B78;
   font-weight: lighter;
 }
+
 .weight-history > h3 {
   font-weight: lighter;
+}
+
+.line {
+  fill: none;
+  stroke: steelblue;
+  stroke-width: 2px;
 }

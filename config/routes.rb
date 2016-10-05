@@ -3,4 +3,8 @@ Rails.application.routes.draw do
   root to: 'entries#index'
 
   resources :entries, only: [:index, :new, :create, :destroy]
+
+  # get 'graph/index'
+  # get 'graph/data', :defaults => { :format => 'json' }
+
 end
