@@ -42,3 +42,8 @@
 
 </div>
 
+<script type="text/javascript">
+  var data = <%= @graph_data.to_json.html_safe %>;
+  window.drawGraph(data);
+</script>
+
