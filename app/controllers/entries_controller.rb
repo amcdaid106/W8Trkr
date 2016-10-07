@@ -9,6 +9,7 @@ class EntriesController < ApplicationController
       }
     end
     @entry = Entry.new
+    @user = current_user
   end
 
   def new

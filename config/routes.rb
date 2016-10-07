@@ -4,7 +4,4 @@ Rails.application.routes.draw do
 
   resources :entries, only: [:index, :new, :create, :destroy]
 
-  # get 'graph/index'
-  # get 'graph/data', :defaults => { :format => 'json' }
-
 end

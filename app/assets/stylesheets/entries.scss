@@ -7,7 +7,6 @@
   height: 100%;
   padding: 30px;
 }
-
 .small-container {
   padding: 20px;
   margin: 30px;
@@ -17,13 +16,47 @@
   border: solid 3px #575B78;
   font-weight: lighter;
 }
-
 .weight-history > h3 {
   font-weight: lighter;
 }
-
+.enter-weight-section {
+  background-position: center;
+}
 .line {
   fill: none;
   stroke: steelblue;
   stroke-width: 2px;
+}
+
+#current-goal-weight-text {
+  display: inline-block
+}
+// #edit-goal-weight-button {
+//   font-family: $header-font;
+// }
+#edit-goal-weight-form {
+  display: inline-block;
+}
+#save-new-goal-weight {
+  margin-left: 15px;
+  background-color: #92949B;
+  color: white;
+  border-radius: 4px;
+  // font-family: $base-font;
+  padding: 7px 22px;
+  font-weight: 300px;
+  font-size: 16px;
+  border: none;
+  &:hover {
+  opacity: 0.9;
+  text-decoration: none;
+  color: white;
+  background-color: #92949B;
+  }
+}
+#current-goal-weight {
+  // font-family: $base-font;
+  background-color: white;
+  font-size: 16px;
+  font-weight: normal;
 }
