@@ -1,1 +1,3 @@
-Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/rails-templates), created by the [Le Wagon coding bootcamp](https://www.lewagon.com) team.
+Simple weight tracker app, allowing users to create an account and track their weight loss progress. Entries are added to a table and also visualized in a graph.
+
+Link: https://w8trkr.herokuapp.com/
