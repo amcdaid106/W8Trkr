@@ -9,7 +9,8 @@
   background-position: center;
 }
 
-form {
+.simple_form.new_user {
+  margin-bottom: 8px;
   label {
     font-weight: lighter;
   }
@@ -17,4 +18,9 @@ form {
     color: white;
     font-size: 12px;
   }
+}
+
+.login-links a {
+  color: white;
+  font-weight: bold;
 }

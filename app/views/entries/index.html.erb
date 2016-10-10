@@ -1,41 +1,117 @@
 <div class="entries-wrapper">
   <div class="container">
     <div class="row">
-      <div class="col-xs-12 col-sm-6 col-sm-offset-3">
-        <h1 class="text-center small-container">My Weight Tracker</h1>
+      <div class="col-xs-12 col-md-6 col-md-offset-3">
+        <h1 class="text-center">My Weight Tracker</h1>
+      </div>
+      <% if false %>
+        <div class="col-xs-12">
+          <div class="small-container">
+            <div class="weight-comparison">
+              <p>Start weight:
+                <% if @entries.first %>
+                  <strong><%= @entries.first.weight %></strong>
+                <% end %>
+              </p>
+              <div class="goal-weight-section">
+                <div class="current-goal-weight">
+                  <%= render "goal_weight", user: @user %>
+                </div>
+                <div id="edit-goal-weight-form" class="hidden">
+                  <% if false %>
+                  <%= simple_form_for @user, url: update_goal_weight_entry_path(@user), method: :patch, remote: true, html: {class: "form-inline"} do |f| %>
+                  <%= f.input :goal_weight, placeholder: 'Goal Weight', label: false %>
+                  <%= f.button :submit, 'Save changes', id: 'save-new-goal-weight', class: 'btn btn-default pull-right'  %>
+                 <% end %>
+                 <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+
+      <div class="col-xs-12 col-md-6 col-md-offset-3">
         <div class="small-container enter-weight-section" style="background-image: linear-gradient(-210deg, rgba(0,10,58,0.6) 0%, rgba(0,10,10,0.2) 70%), url('<%= asset_path 'weighing.jpg' %>');">
           <%= render "form" %>
         </div>
+      </div>
+
+      <div class="col-xs-12">
         <div class="small-container">
-          <div class="weight-history">
-            <h3>Weight History</h3>
-            <table class="table">
-              <thead>
-                <tr>
-                  <td>Date</td>
-                  <td>Weight (lbs)</td>
-                  <td>Delete</td>
-                </tr>
-              </thead>
-              <% @entries.reverse_each do |entry| %>
-              <tbody>
-                <tr>
-                  <td><%= entry.created_at.strftime("%b %e, %l:%M %p") %></td>
-                  <td><%= entry.weight %></td>
-                  <td class="text-center">
-                    <%= link_to entry_path(entry[:id]), method: :delete do %>
-                    <i class="fa fa-trash" aria-hidden="true"></i>
-                    <% end %>
-                  </td>
-                </tr>
-              </tbody>
-              <% end %>
-            </table>
-          </div>
+          <% if @entries.length > 0 %>
+            <div class="weight-history">
+              <h3>Weight History</h3>
+              <table class="table">
+                <thead>
+                  <tr>
+                    <td>Date</td>
+                    <td>Weight (lbs)</td>
+                    <td>Delete</td>
+                  </tr>
+                </thead>
+                <% @entries.reverse_each do |entry| %>
+                  <tbody>
+                    <tr>
+                      <td><%= entry.created_at.strftime("%b %e, %l:%M %p") %></td>
+                      <td><%= entry.weight %></td>
+                      <td class="text-center">
+                        <%= link_to entry_path(entry[:id]), method: :delete do %>
+                        <i class="fa fa-trash" aria-hidden="true"></i>
+                        <% end %>
+                      </td>
+                    </tr>
+                  </tbody>
+                <% end %>
+              </table>
+            </div>
+          <% else %>
+            <h3 class="text-center">No entries yet</h3>
+          <% end %>
         </div>
       </div>
+
+      <div class="col-xs-12">
+        <div class="small-container">
+          <% if @entries.length > 0 %>
+            <svg id="graph" width="100%" height="500"></svg>
+          <% else %>
+            <h3 class="text-center">No data yet</h3>
+          <% end %>
+        </div>
+      </div>
+
+      <% if false %>
+        <div class="tab-section">
+          <div class="col-xs-12 col-md-4 col-md-offset-4">
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs" role="tablist">
+              <li role="presentation" class="active data-tab"><a href="#table" aria-controls="home" role="tab" data-toggle="tab">View Weight History</a></li>
+              <li role="presentation"><a href="#graph" aria-controls="profile" role="tab" data-toggle="tab">View Graph</a></li>
+            </ul>
+          </div>
+          <div class="col-xs-12">
+            <!-- Tab panes -->
+            <div class="tab-content">
+              <div role="tabpanel" class="tab-pane active" id="table">...</div>
+              <div role="tabpanel" class="tab-pane" id="graph">...</div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+
     </div>
   </div>
-
 </div>
+
+
+
+<script type="text/javascript">
+  var data = <%= @graph_data.to_json.html_safe %>;
+  function draw() {
+    window.drawGraph(data);
+  }
+  window.onresize = draw;
+  draw();
+</script>
 

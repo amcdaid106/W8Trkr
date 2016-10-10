@@ -1,2 +1,6 @@
-// Place all the behaviors and hooks related to the matching controller here.
-// All this logic will automatically be available in application.js.
+$(document).ready(function() {
+  $('#current-goal-weight').on('click', '#edit-goal-weight-button-button', function() {
+    $('#current-goal-weight').addClass('hidden');
+    $('#edit-goal-weight-form').removeClass('hidden');
+  });
+})

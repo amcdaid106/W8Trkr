@@ -1,0 +1,3 @@
+$('#edit-goal-weight-form').addClass('hidden');
+$('#current-goal-weight').removeClass('hidden');
+$('#current-goal-weight').html("<%= j render 'goal_weight', user: @user %>");
